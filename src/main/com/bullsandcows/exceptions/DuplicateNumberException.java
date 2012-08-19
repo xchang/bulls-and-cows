@@ -1,4 +1,4 @@
-package com.guessnumber.exceptions;
+package com.bullsandcows.exceptions;
 
 public class DuplicateNumberException extends RuntimeException {
 }
