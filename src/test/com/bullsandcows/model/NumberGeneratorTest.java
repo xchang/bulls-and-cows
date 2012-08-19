@@ -18,6 +18,6 @@ public class NumberGeneratorTest {
         SecretNumber firstNumber = generator.generate();
         SecretNumber secondNumber = generator.generate();
 
-        Assert.assertNotSame(firstNumber, secondNumber);
+        Assert.assertFalse(firstNumber.equals(secondNumber));
     }
 }

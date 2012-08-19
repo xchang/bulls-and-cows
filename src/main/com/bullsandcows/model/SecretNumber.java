@@ -2,8 +2,7 @@ package com.bullsandcows.model;
 
 import com.bullsandcows.exceptions.DuplicateNumberException;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class SecretNumber {
     private List<Integer> numbers = new ArrayList<Integer>();
@@ -42,7 +41,7 @@ public class SecretNumber {
 
         SecretNumber that = (SecretNumber) o;
 
-        if (!numbers.containsAll(that.numbers)) return false;
+        if (!numbers.equals(that.numbers)) return false;
 
         return true;
     }

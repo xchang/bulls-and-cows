@@ -1,8 +1,9 @@
 package com.bullsandcows.model;
 
 import com.bullsandcows.exceptions.DuplicateNumberException;
-import org.junit.Assert;
+import junit.framework.Assert;
 import org.junit.Test;
+
 
 public class SecretNumberTest {
     @Test
@@ -35,5 +36,29 @@ public class SecretNumberTest {
 
         Assert.assertEquals(1, match.bulls());
         Assert.assertEquals(0, match.cows());
+    }
+
+    @Test
+    public void should_be_equal_for_two_same_secret_numbers() {
+        SecretNumber firstNumber = new SecretNumber(1, 2, 3, 4);
+        SecretNumber secondNumber = new SecretNumber(1, 2, 3, 4);
+
+        Assert.assertEquals(firstNumber, secondNumber);
+    }
+
+    @Test
+    public void should_not_be_equal_for_two_different_secret_numbers() {
+        SecretNumber firstNumber = new SecretNumber(1, 2, 3, 4);
+        SecretNumber secondNumber = new SecretNumber(5, 6, 7, 8);
+
+        Assert.assertFalse(firstNumber.equals(secondNumber));
+    }
+
+    @Test
+    public void should_not_be_equal_for_two_secret_numbers_with_different_orders() {
+        SecretNumber firstNumber = new SecretNumber(1, 2, 3, 4);
+        SecretNumber secondNumber = new SecretNumber(4, 3, 2, 1);
+
+        Assert.assertFalse(firstNumber.equals(secondNumber));
     }
 }
